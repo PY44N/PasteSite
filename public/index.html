@@ -1,0 +1,32 @@
+<head>
+    <title>Paste Site</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<style>
+    body {
+        height: 98%;
+    }
+
+    textarea {
+        width: 100%;
+        height: 96vh;
+        resize: none;
+    }
+</style>
+<script>
+    var socket = io()
+
+    function Upload() {
+        socket.emit("upload", document.getElementById("txt").value)
+    }
+
+    socket.on("done", function(link) {
+        window.location.href=link
+    })
+</script>
+<body>
+    <center>
+        <textarea id="txt">Paste site by Pyan</textarea>
+        <button onclick="Upload()">Upload</button>
+    </center>
+</body>
