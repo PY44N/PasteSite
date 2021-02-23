@@ -18,8 +18,8 @@ function Random(length) {
 
 app.use(express.static('public'));
 
-http.listen(8000, '0.0.0.0', () => {
-    console.log('listening on *:8000');
+http.listen(80, '0.0.0.0', () => {
+    console.log('listening on *:80');
 });
 
 io.on('connection', function(socket) {
